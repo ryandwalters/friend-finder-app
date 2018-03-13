@@ -5,18 +5,20 @@ var path = require("path");
 
 //express environment
 var app = express();
-// var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 3000; 
+
+app.use(express.static(path.join(__dirname, "/public")));
 
 
-app.use(bodyParser.json());
-app.use(bodyParser.text());
+
+app.use(bodyParser.text({type: 'text/html'}));
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json({type: "application/vnd.api+json"}));
-app.use(express.static(path.join(__dirname, "app/public")));
+app.use(bodyParser.json({ type: 'application/*+json'}));
+app.use(bodyParser.raw({type: 'application/vnd.custom-type'}));
 
 //require needed
-require("./app/routing/apiRoutes.js")(app);
-require("./app/routing/htmlRoutes.js")(app);
+require("./routing/apiRoutes.js")(app);
+require("./routing/htmlRoutes.js")(app);
 
 
 

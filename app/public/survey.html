@@ -7,7 +7,7 @@
 
     <!-- Latest compiled and minified CSS & JS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.0.0.js" integrity="sha256-jrPLZ+8vDxt2FnE1zvZXCkCcebI/C8Dt5xyaQBjxQIo=" crossorigin="anonymous"></script>
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
     <!-- Font Awesome Glyphicons -->
@@ -16,8 +16,7 @@
     <!-- Chosen -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
-
-</head>
+    <script src="https://code.jquery.com/jquery.js"></script>
 
 <body>
 
@@ -189,80 +188,88 @@
                     Submit</button>
 
             </div>
-            <div class="row">
+        </div>
+    </div>
 
-                <hr>
+    <br>
+    <br>
 
+    <!-- Modal -->
+    <!-- this will modal pop-up will be revealed after the form is filled out and submitted -->
 
-            </div>
+    <div id="results-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
 
-            <!-- Modal -->
-            <!-- this will modal pop-up will be revealed after the form is filled out and submitted -->
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                            <h1 class="modal-title" id="myModalLabel">Success!</h1>
-                        </div>
-                        <div class="modal-body">
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h2 class="modal-title">
+                        <strong>Best Match</strong>
+                    </h2>
+                </div>
+                <div class="modal-body">
+                    <h2 id="match-name"></h2>
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
 
+        </div>
 
-            <script type="text/javascript">
+    </div>
+
+    <script type="text/javascript">
 
 
+        // Capture the form inputs
 
-                // Capture the form inputs
-                $("#submit").on("click", function () {
-                    event.preventDefault();
+            // Capture the form inputs
+    $("#submit").on("click", function(event) {
 
-                    var userData = {
-                        "name": $("#name").val().trim(),
-                        "photo": $("#photo").val().trim(),
-                        "scores": [
-                            $("#q1").val().trim(),
-                            $("#q2").val().trim(),
-                            $("#q3").val().trim(),
-                            $("#q4").val().trim(),
-                            $("#q5").val().trim(),
-                            $("#q6").val().trim(),
-                            $("#q7").val().trim(),
-                            $("#q8").val().trim(),
-                            $("#q9").val().trim(),
-                            $("#q10").val().trim()
-                        ]
-                    };
 
-                    var currentURL = window.location.origin;
+            var userData = {
+                name: $("#name").val().trim(),
+                photo: $("#photo").val(),
+                scores: [
+                    $("#q1").val().trim(),
+                    $("#q2").val().trim(),
+                    $("#q3").val().trim(),
+                    $("#q4").val().trim(),
+                    $("#q5").val().trim(),
+                    $("#q6").val().trim(),
+                    $("#q7").val().trim(),
+                    $("#q8").val().trim(),
+                    $("#q9").val().trim(),
+                    $("#q10").val().trim()
+                ]
+            };
+            //grab current URL for post method
+      var currentURL = window.location.origin;
+      //ajax send info to api route and await response
+      function success(data) {
+          //build info into modal, use html to replace previous friend
+          $('.modal-body').html('<h3>Meet your new friend!</h3>' +
+            '<h3> ' + data.name + '</h3>' +
+            '<img src="' + data.photo + '" width=300px>');
+          //toggle modal to appear on page
+          $('#myModal').modal('toggle');
+      }
+      $.ajax({
+        type: "POST",
+        url: currentURL + "/api/friends",
+        data: userData,
+        success: success
+      });
+    })
+  </script>
+</body>
 
-                    function success(data) {
-                        $(".modal-body").html("<h3>Meet your new friend!</h3>" +
-                            "<h3>" + data.name + "</h3>" + "<img src = " + data.photo);
 
-                        $("#myModal").modal("toggle");
-
-                    }
-
-                    $.ajax({
-                        type: "POST",
-                        url: currentURL + "/api/friends",
-                        data: userData,
-                        success: success
-                    });
-
-                });
-            </script>
-
+    })
+    </script>
 </body>
 
 </html>
-
