@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Friend-Finder</title>
+
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.0.0.js" integrity="sha256-jrPLZ+8vDxt2FnE1zvZXCkCcebI/C8Dt5xyaQBjxQIo=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <!-- Font Awesome Glyphicons -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
+    <!-- Chosen -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
+
+</head>
+
+<body>
+
+
+    <div class="container">
+        <div class="container">
+            <div class="jumbotron">
+                <a href="home.html">
+                    <button type="button" class="btn btn-primary btn-lg">
+                        <span class="glyphicon glyphicon-list-alt"></span> Home</button>
+                </a>
+
+
+                <h2>Survey Questions</h2>
+                <hr>
+
+                <h3>
+                    <strong>About You</strong>
+                </h3>
+                <h4>Name (Required)</h4>
+                <input type="text" id="name" class="form-control" required>
+
+                <h4>Link to Photo Image (Required)</h4>
+                <input type="text" id="photo" class="form-control" required>
+
+                <hr>
+
+                <h3>
+                    <strong>Question 1</strong>
+                </h3>
+                <h4>Darth Vader is Luke Skywalker's father.</h4>
+                <select class="chosen-select" id="q1">
+                    <option value=""></option>
+                    <option value="1">1 (Strongly Disagree)</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Strongly Agree)</option>
+                </select>
+
+                <h3>
+                    <strong>Question 2</strong>
+                </h3>
+                <h4>Snow shoes are funny.</h4>
+                <select class="chosen-select" id="q2">
+                    <option value=""></option>
+                    <option value="1">1 (Strongly Disagree)</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Strongly Agree)</option>
+                </select>
+
+
+                <h3>
+                    <strong>Question 3</strong>
+                </h3>
+                <h4>A cat person is really a dog person who never owned a dog.</h4>
+                <select class="chosen-select" id="q3">
+                    <option value=""></option>
+                    <option value="1">1 (Strongly Disagree)</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Strongly Agree)</option>
+                </select>
+
+
+                <h3>
+                    <strong>Question 4</strong>
+                </h3>
+                <h4>Fromage is the French word for cheese, but cheese is not the English word for fromage.</h4>
+                <select class="chosen-select" id="q4">
+                    <option value=""></option>
+                    <option value="1">1 (Strongly Disagree)</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Strongly Agree)</option>
+                </select>
+
+
+                <h3>
+                    <strong>Question 5</strong>
+                </h3>
+                <h4>Is this question number 5?.</h4>
+                <select class="chosen-select" id="q5">
+                    <option value=""></option>
+                    <option value="1">1 (Strongly Disagree)</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Strongly Agree)</option>
+                </select>
+
+
+                <h3>
+                    <strong>Question 6</strong>
+                </h3>
+                <h4>Are you going to strongly disagree with this question?.</h4>
+                <select class="chosen-select" id="q6">
+                    <option value=""></option>
+                    <option value="1">1 (Strongly Disagree)</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Strongly Agree)</option>
+                </select>
+
+
+                <h3>
+                    <strong>Question 7</strong>
+                </h3>
+                <h4>Did you stongly disagree with the previous question?</h4>
+                <select class="chosen-select" id="q7">
+                    <option value=""></option>
+                    <option value="1">1 (Strongly Disagree)</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Strongly Agree)</option>
+                </select>
+
+                <h3>
+                    <strong>Question 8</strong>
+                </h3>
+                <h4>Give me your shoe.</h4>
+                <select class="chosen-select" id="q8">
+                    <option value=""></option>
+                    <option value="1">1 (Strongly Disagree)</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Strongly Agree)</option>
+                </select>
+
+                <h3>
+                    <strong>Question 9</strong>
+                </h3>
+                <h4>An audio book is the same thing as a book.</h4>
+                <select class="chosen-select" id="q9">
+                    <option value=""></option>
+                    <option value="1">1 (Strongly Disagree)</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Strongly Agree)</option>
+                </select>
+
+                <h3>
+                    <strong>Question 10</strong>
+                </h3>
+                <h4>This is the last quesiton of this survey, and you've never felt better.</h4>
+                <select class="chosen-select" id="q10">
+                    <option value=""></option>
+                    <option value="1">1 (Strongly Disagree)</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Strongly Agree)</option>
+                </select>
+
+                <br>
+                <br>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit">
+                    <i class="fa fa-check-circle" aria-hidden="true"></i>
+                    Submit</button>
+
+            </div>
+            <div class="row">
+
+                <hr>
+
+
+            </div>
+
+            <!-- Modal -->
+            <!-- this will modal pop-up will be revealed after the form is filled out and submitted -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h1 class="modal-title" id="myModalLabel">Success!</h1>
+                        </div>
+                        <div class="modal-body">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <script type="text/javascript">
+
+
+
+                // Capture the form inputs
+                $("#submit").on("click", function () {
+                    event.preventDefault();
+
+                    var userData = {
+                        "name": $("#name").val().trim(),
+                        "photo": $("#photo").val().trim(),
+                        "scores": [
+                            $("#q1").val().trim(),
+                            $("#q2").val().trim(),
+                            $("#q3").val().trim(),
+                            $("#q4").val().trim(),
+                            $("#q5").val().trim(),
+                            $("#q6").val().trim(),
+                            $("#q7").val().trim(),
+                            $("#q8").val().trim(),
+                            $("#q9").val().trim(),
+                            $("#q10").val().trim()
+                        ]
+                    };
+
+                    var currentURL = window.location.origin;
+
+                    function success(data) {
+                        $(".modal-body").html("<h3>Meet your new friend!</h3>" +
+                            "<h3>" + data.name + "</h3>" + "<img src = " + data.photo);
+
+                        $("#myModal").modal("toggle");
+
+                    }
+
+                    $.ajax({
+                        type: "POST",
+                        url: currentURL + "/api/friends",
+                        data: userData,
+                        success: success
+                    });
+
+                });
+            </script>
+
+</body>
+
+</html>
+
