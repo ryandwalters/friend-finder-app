@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Friend-Finder</title>
+    <script src="https://code.jquery.com/jquery.js"></script>
 
     <!-- Latest compiled and minified CSS & JS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -16,7 +17,7 @@
     <!-- Chosen -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery.js"></script>
+
 
 <body>
 
@@ -247,29 +248,30 @@
                 ]
             };
             //grab current URL for post method
-      var currentURL = window.location.origin;
+    //   var currentURL = window.location.origin;
       //ajax send info to api route and await response
-      function success(data) {
+      //Ajax call pages to send back data 
+    $.post("/friends", userData)
+     // post calls api
+      .success(function (data){
+          console.log("Friends")
+          $(".modal").modal();
+
           //build info into modal, use html to replace previous friend
           $('.modal-body').html('<h3>Meet your new friend!</h3>' +
             '<h3> ' + data.name + '</h3>' +
             '<img src="' + data.photo + '" width=300px>');
           //toggle modal to appear on page
           $('#myModal').modal('toggle');
-      }
-      $.ajax({
-        type: "POST",
-        url: currentURL + "/api/friends",
-        data: userData,
-        success: success
       });
+    //   $.ajax({
+    //     type: "POST",
+    //     url: currentURL + "/api/friends",
+    //     data: userData,
+    //     success: success
+    //   });
     })
   </script>
-</body>
-
-
-    })
-    </script>
 </body>
 
 </html>

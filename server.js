@@ -5,7 +5,7 @@ var path = require("path");
 
 //express environment
 var app = express();
-var PORT = process.env.PORT || 3050; 
+var PORT = process.env.PORT || 3000; 
 
 app.use(express.static(path.join(__dirname, "/public")));
 
@@ -17,11 +17,15 @@ app.use(bodyParser.json({ type: 'application/*+json'}));
 app.use(bodyParser.raw({type: 'application/vnd.custom-type'}));
 
 //require needed
-require("./routing/apiRoutes.js")(app);
-require("./routing/htmlRoutes.js")(app);
+var apiRoutes = require('./app/routing/apiRoutes.js');
+apiRoutes (app);
 
+var htmlRoutes= require('./app/routing/htmlRoutes.js');
+htmlRoutes(app);
 
+app.use("/api", apiRoutes);
+app.use("/", htmlRoutes);
 
-app.listen(process.env.PORT || 3000, function(){
+app.listen(PORT, function(){
   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });

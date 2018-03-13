@@ -1,46 +1,44 @@
-var friends = require("../data/friends.js");
-
-//dependencies
-var bodyParser = require("body-parser");
+var friendsList = require("../data/friends.js");
 var path = require("path");
 
-//require friends.js
+//dependencies
+// var express = require("express");
+// var bodyParser = require("body-parser");
+// var app = express();
 
+ module.exports = function (app) {
 
-
-function friendsList (app) {
-
-// * A GET route with the url `/api/friends`. This will be used to display a JSON of all possible friends.
-    app.get("/api/friends", function (req, res) {
-        res.json(friends);
+    // * A GET route with the url `/api/friends`. This will be used to display a JSON of all possible friends.
+    app.get("/friends", function (req, res) {
+        res.json(friendsList);
     })
 
 
     //post request
 
-    app.post("/api/friends", function (req, res) {
+    app.post("/friends", function (req, res) {
 
+        console.log("hit post");
         var bestMatch = {
             name: "",
-            photo: ""
+            photo: ""   
         }
 
 
-        var userTotal= sum(req.body.scores);
-  
+        var userTotal = sum(req.body.scores);
+
 
         var friendTotal = 0;
 
         var closest = 50;
 
-        console.log (friendsList)
 
 
         for (var i = 0; i < friendsList.length; i++) {
             friendTotal = sum(friendsList[i].scores);
 
-            var difference = math.abs(friendTotal - userTotal);
-            if(difference <= closest){
+            var difference = Math.abs(friendTotal - userTotal);
+            if (difference <= closest) {
                 closest = difference;
                 bestMatch.name = friendsList[i].name;
                 bestMatch.photo = friendsList[i].photo;
@@ -57,6 +55,7 @@ function friendsList (app) {
         res.json(bestMatch);
     });
 
-}
+} 
+
 
 
