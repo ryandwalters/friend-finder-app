@@ -34,10 +34,18 @@ var friends = [
         "name": "Dr. Doctor",
         "photo": "https://picsum.photos/200/300/?random",
         "scores": [
-            3, 1, 1, 1, 5, 2, 3, 3, 3, 2
+            3, 1, 1, 1, 2, 2, 3, 3, 3, 2
         ]
 
     },
+    {
+        "name": "I AM YOUR FRIEND!",
+        "photo": "https://picsum.photos/200/300/?random",
+        "scores": [
+            1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+        ]
+
+    }
 
 ];
 
