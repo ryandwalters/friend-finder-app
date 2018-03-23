@@ -12,16 +12,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
 
     <body>
-
+        <br>
 
         <div class="container">
             <div class="container">
                 <div class="jumbotron">
                     <a href="/">
-                        <button type="button" class="btn btn-primary btn-lg">
+                        <button type="button" class="btn btn-primary btn-lg" class="float-right">
                             <span class="glyphicon glyphicon-list-alt"></span> Home</button>
                     </a>
-
                     <form>
                         <h2>Survey Questions</h2>
                         <hr>
@@ -176,9 +175,9 @@
 
                 </div>
                 <footer>
-                        <a href="api/friends">API friends list</a>
-                    </footer>
-            
+                    <a href="api/friends">API friends list</a>
+                </footer>
+
             </div>
         </div>
 
@@ -202,6 +201,7 @@
                     <div class="modal-body">
                         <h2 id="match-name"></h2>
                         <img id="friendPick" src="">
+                        <h2 id="likes"></h2>
                     </div>
 
                     <div class="modal-footer">
@@ -223,6 +223,7 @@
                         <h2 class="modal-title">
                         </h2>
                     </div>
+
                     <div class="modal-body">
                         <strong>You must enter a user name!</strong>
 
@@ -286,6 +287,7 @@
 
                             $('#match-name').text(data.name)
                             $('#friendPick').attr('src', data.photo)
+                            $('#likes').text(data.likes)
                             // '<img src="' + data.photo + '" width=300px>');
 
                         });

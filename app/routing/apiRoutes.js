@@ -1,10 +1,6 @@
 var friendsList = require("../data/friends.js");
 var path = require("path");
 
-//dependencies
-// var express = require("express");
-// var bodyParser = require("body-parser");
-// var app = express();
 
  module.exports = function (app) {
 
@@ -13,26 +9,18 @@ var path = require("path");
         res.json(friendsList);
     })
 
-
-    //post request
-
     app.post("/friends", function (req, res) {
 
         console.log("hit post");
         var bestMatch = {
             name: "",
-            photo: ""   
+            photo: "",   
+            likes: ""
         }
 
-
         var userTotal = sum(req.body.scores);
-
-
         var friendTotal = 0;
-
         var closest = 50;
-
-
 
         for (var i = 0; i < friendsList.length; i++) {
             friendTotal = sum(friendsList[i].scores);
@@ -42,6 +30,7 @@ var path = require("path");
                 closest = difference;
                 bestMatch.name = friendsList[i].name;
                 bestMatch.photo = friendsList[i].photo;
+                bestMatch.likes = friendsList[i].likes;
             }
         };
 
